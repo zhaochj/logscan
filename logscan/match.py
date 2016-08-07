@@ -119,8 +119,7 @@ def cacl(ast, line):   # 计算语法树的bool值
 
 
 class Matcher:
-    def __init__(self, name, origin):
-        self.name = name
+    def __init__(self, origin):
         self.origin = origin
         self.ast = make_ast(tokenize(origin))  # 把匹配规则数据生成语法树
 
@@ -192,7 +191,7 @@ class Matchers:
 if __name__ == '__main__':
     e = '#test# & #abc# |(!#123# | #456#)'
     #print(tokenize(e))
-    s = 'test cdf 234 568'
+    s = 'dffdf cdf 23 568'
 
     #ast = make_ast(tokenize(e))
     #print(ast.visit())
