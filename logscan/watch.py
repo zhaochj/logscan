@@ -89,21 +89,6 @@ class Watcher(FileSystemEventHandler):
         if self.fd is not None and not self.fd.closed:  # 判断当文件描述符不为None且又没有关闭时，执行close()操作
             self.fd.close()
 
-if __name__ == '__main__':
-    import sys
 
-    class Matcher:
-        def match(self, line):
-            return True
-
-    w = Watcher(sys.argv[1], Matcher())
-    w2 = Watcher(sys.argv[2], Matcher())
-
-    try:
-        t1 = threading.Thread(target=w.start)
-        t1.start()
-        t2 = threading.Thread(target=w2.start)
-        t2.start()
-    except KeyboardInterrupt:
         w.stop()
         w2.stop()
